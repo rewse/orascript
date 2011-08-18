@@ -1,0 +1,3 @@
+ALTER DISKGROUP &diskgroup_name.
+REBALANCE POWER 11
+;

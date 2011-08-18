@@ -1,0 +1,1 @@
+ALTER DISKGROUP &diskgroup_name. MOUNT RESTRICT;

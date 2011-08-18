@@ -1,0 +1,3 @@
+DROP DISKGROUP &diskgroup_name.
+INCLUDING CONTENTS
+;

@@ -1,0 +1,46 @@
+DB_NAME=NEEDTOSET
+EXAKIT=$HOME/exakit
+
+if [ "$DB_NAME" = NEEDTOSET ]; then
+  echo "[WARNING] Need to set DB_NAME at .dbrc" 1>&2
+  echo -n "DB_NAME for the current session: "
+  read DB_NAME
+  export DB_NAME
+fi
+
+ORACLE_SID_DB=`ps -ef | grep smon | awk -F "_" '{print $3}' | grep $DB_NAME`
+ORACLE_SID_ASM=`ps -ef | grep smon | awk -F "_" '{print $3}' | grep ASM`
+
+export ORACLE_SID=$ORACLE_SID_DB
+export ORACLE_BASE=/u01/app/oracle
+export ORACLE_DB_HOME=$ORACLE_BASE/product/11.2.0/dbhome_1
+export ORACLE_HOME=$ORACLE_DB_HOME
+export ORA_GRID_HOME=/u01/app/11.2.0/grid
+export NLS_LANG=AMERICAN_JAPAN.AL32UTF8
+export PATH=$ORACLE_HOME/bin:$ORA_GRID_HOME/bin:$EXAKIT/bin:$EXAKIT/broadstat:$EXAKIT/stuff:$PATH
+export LD_LIBRARY_PATH=$ORACLE_HOME/lib:$ORA_GRID_HOME/lib:$LD_LIBRARY_PATH
+export ORACLE_LOG=$ORACLE_BASE/diag/rdbms/$DB_NAME/$ORACLE_SID/trace
+export ORA_GRID_LOG=$ORA_GRID_HOME/log/$S_HOSTNAME
+export LANG=C
+
+alias dbenv='export ORACLE_HOME=$ORACLE_DB_HOME; export ORACLE_SID=$ORACLE_SID_DB; env|grep ORACLE_SID ;env | grep ORACLE_HOME'
+alias  genv='export ORACLE_HOME=$ORA_GRID_HOME;  export ORACLE_SID=$ORACLE_SID_ASM;env|grep ORACLE_SID ;env | grep ORACLE_HOME'
+
+alias cdo="cd $ORACLE_HOME"
+alias cdl="cd $ORACLE_LOG"
+alias cdgl="cd $ORA_GRID_LOG"
+alias sqlplus="rlwrap sqlplus"
+alias rman="rlwrap rman"
+alias asmcmd="rlwrap asmcmd"
+
+echo " "
+echo ---------------------------------------------------------------
+echo "ORACLE_SID:" $ORACLE_SID
+echo "ORACLE_BASE:" $ORACLE_BASE
+echo "ORACLE_HOME:" $ORACLE_HOME
+echo "ORA_GRID_HOME:" $ORA_GRID_HOME
+echo "ORACLE_LOG:" $ORACLE_LOG
+echo "ORA_GRID_LOG:" $ORA_GRID_LOG
+echo "NLS_LANG:" $NLS_LANG
+echo ---------------------------------------------------------------
+echo " "
