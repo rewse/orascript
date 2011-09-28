@@ -4,9 +4,8 @@ COLUMN index_name FORMAT a20
 SELECT
   table_Name,
   index_name,
-  uniquness,
   index_type,
-  compression,
+  compression
 FROM user_indexes
 ORDER BY
   table_name,
