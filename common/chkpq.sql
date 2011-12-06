@@ -1,3 +1,5 @@
+COLUMN statistic FORMAT a30
+
 SELECT
   *
 FROM
