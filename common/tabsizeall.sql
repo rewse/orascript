@@ -8,10 +8,7 @@ SELECT
 FROM user_segments
 WHERE
   segment_name NOT LIKE 'BIN$%'
-  AND (
-    segment_type LIKE 'TABLE%'
-    OR segment_type LIKE 'INDEX%'
-  )
+  AND segment_type LIKE 'TABLE%'
 GROUP BY
   segment_name,
   segment_type
