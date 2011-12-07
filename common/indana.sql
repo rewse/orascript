@@ -1,4 +1,3 @@
-set line 400
 COL table_name FOR a20
 COL index_name FOR a20
 COL last_analyzed FOR a20

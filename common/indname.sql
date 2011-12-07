@@ -1,11 +1,10 @@
-SET LINESIZE 400
-COLUMN table_name FORMAT a20
-COLUMN index_name FORMAT a20
+COLUMN table_name FORMAT a30
+COLUMN index_name FORMAT a30
+COLUMN index_type FORAMT a10
 SELECT
   table_Name,
   index_name,
-  index_type,
-  compression
+  index_type
 FROM user_indexes
 ORDER BY
   table_name,
