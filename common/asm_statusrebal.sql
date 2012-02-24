@@ -1,3 +1,4 @@
+COLUMN name FORMAT a20
 SELECT
   dg.name,
   op.operation,
