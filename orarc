@@ -2,7 +2,7 @@ DB_NAME=NEEDTOSET
 EXAKIT=$HOME/exakit
 
 if [ "$DB_NAME" = NEEDTOSET ]; then
-  echo "[WARNING] Need to set DB_NAME at .dbrc" 1>&2
+  echo "[WARNING] Need to set DB_NAME at .orarc" 1>&2
   echo -n "DB_NAME for the current session: "
   read DB_NAME
   export DB_NAME
