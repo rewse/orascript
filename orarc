@@ -24,8 +24,7 @@ export ORA_GRID_LOG=$ORA_GRID_HOME/log/$S_HOSTNAME
 alias cdo="cd $ORACLE_HOME"
 alias cdl="cd $ORACLE_LOG"
 alias cdgl="cd $ORA_GRID_LOG"
-alias sqlplus=sqlplus64
-alias sqlplus="rlwrap sqlplus"
+alias sqlplus="rlwrap sqlplus64"
 alias rman="rlwrap rman"
 alias asmcmd="rlwrap asmcmd"
 
