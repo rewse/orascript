@@ -1,3 +1,5 @@
+SET LINES 100
+
 COL segment_name FOR a30
 COL segment_type FOR a20
 COL mb FOR 999999999.99
@@ -17,6 +19,7 @@ ORDER BY
   segment_name
 ;
 
+COL table_name FOR a30
 SELECT
   s.segment_type,
   i.table_name,
